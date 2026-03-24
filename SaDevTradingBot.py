@@ -68,7 +68,7 @@ class SaDevTradingBot:
 
 # --- 2. THE FRONTEND SETUP ---
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
- server = app.server
+server = app.server
 
 app.layout = dbc.Container([
     dbc.Row([
