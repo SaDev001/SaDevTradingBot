@@ -68,6 +68,7 @@ class SaDevTradingBot:
 
 # --- 2. THE FRONTEND SETUP ---
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
+ server = app.server
 
 app.layout = dbc.Container([
     dbc.Row([
@@ -146,3 +147,4 @@ def update_ui(n_clicks, ticker, interval):
 # --- 4. START THE SERVER ---
 if __name__ == "__main__":
     app.run(debug=True, port=8050)
+   
