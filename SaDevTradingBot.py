@@ -5,6 +5,23 @@ import plotly.graph_objects as go
 import yfinance as yf
 import pandas as pd
 import pandas_ta_classic as ta
+import smtplib
+from email.message import EmailMessage
+import random
+
+def generate_otp():
+    return str(random.randint(100000, 999999))
+def send_otp_email(receiver_email, otp_code):
+    msg = EmailMessage()
+    msg.set_content(f"Your SaDeVTradingBot verification code is: {otp_code}")
+    msg['Subject'] = 'Verify Your Account'
+    msg['From'] = "your-email@gmail.com"
+    msg['To'] = receiver_email
+
+    # Connect to Gmail's server
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login("your-email@gmail.com", "your-app-password")
+        smtp.send_message(msg)
 
 # --- 1. THE BACKEND LOGIC ---
 class SaDevTradingBot:
